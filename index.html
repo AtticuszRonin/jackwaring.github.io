@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote Jack Waring — LSE AI Society President</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; background: #F5F0EB; color: #1a1a2e; }
+    .site { max-width: 900px; margin: 0 auto; }
+
+    nav { background: #1B3A5C; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    nav .logo { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 1px; }
+    nav .links { display: flex; gap: 20px; }
+    nav .links a { color: #ccd6e0; font-size: 13px; text-decoration: none; cursor: pointer; letter-spacing: 0.5px; }
+    nav .links a:hover { color: #E03A2A; }
+
+    .hero { background: #F5F0EB; padding: 48px 32px 40px; border-bottom: 3px solid #E03A2A; }
+    .hero .tag { font-size: 12px; letter-spacing: 2px; color: #1B3A5C; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+    .hero h1 { font-size: 80px; font-weight: 900; color: #E03A2A; line-height: 0.95; text-transform: uppercase; text-shadow: 3px 3px 0 #1B3A5C; }
+    .hero .for-president { font-size: 22px; font-weight: 700; color: #1B3A5C; letter-spacing: 2px; margin: 12px 0 4px; text-transform: uppercase; }
+    .hero .slogan { font-size: 13px; letter-spacing: 2px; color: #555; text-transform: uppercase; margin-bottom: 20px; }
+    .hero .ticks { list-style: none; margin-bottom: 24px; }
+    .hero .ticks li { font-size: 15px; font-weight: 700; color: #1B3A5C; padding: 6px 0; display: flex; align-items: center; gap: 10px; }
+    .tick-icon { width: 22px; height: 22px; border: 2.5px solid #1B3A5C; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tick-icon svg { width: 12px; height: 12px; stroke: #E03A2A; stroke-width: 2.5; fill: none; }
+    .vote-btn { background: #E03A2A; color: #fff; border: none; padding: 14px 32px; font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 2px; }
+    .vote-btn:hover { background: #c02e20; }
+
+    section { padding: 48px 32px; }
+    section:nth-child(even) { background: #fff; }
+    .section-tag { font-size: 11px; letter-spacing: 2px; color: #E03A2A; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+    .section-title { font-size: 32px; font-weight: 900; color: #1B3A5C; text-transform: uppercase; margin-bottom: 8px; }
+    .section-sub { font-size: 15px; color: #555; margin-bottom: 32px; line-height: 1.6; max-width: 600px; }
+
+    .vision-intro { background: #1B3A5C; color: #fff; padding: 20px 24px; border-left: 5px solid #E03A2A; margin-bottom: 32px; font-size: 15px; line-height: 1.7; }
+    .vision-intro strong { color: #E03A2A; }
+    .agenda-title { font-size: 22px; font-weight: 900; color: #E03A2A; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 24px; border-bottom: 2px solid #E03A2A; padding-bottom: 8px; }
+    .agenda-items { display: flex; flex-direction: column; gap: 20px; }
+    .agenda-item { border-left: 4px solid #1B3A5C; padding: 16px 20px; background: #F5F0EB; }
+    .agenda-item:hover { border-left-color: #E03A2A; }
+    .agenda-item h3 { font-size: 16px; font-weight: 700; color: #1B3A5C; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .agenda-item p { font-size: 14px; color: #444; line-height: 1.65; }
+    .honourable { margin-top: 32px; }
+    .honourable h3 { font-size: 16px; font-weight: 700; color: #1B3A5C; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .honourable ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+    .honourable ul li { background: #1B3A5C; color: #fff; font-size: 12px; padding: 6px 14px; letter-spacing: 1px; border-radius: 2px; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .why-card { border: 1.5px solid #1B3A5C; padding: 20px; }
+    .why-card .num { font-size: 32px; font-weight: 900; color: #E03A2A; line-height: 1; margin-bottom: 8px; }
+    .why-card h3 { font-size: 13px; font-weight: 700; color: #1B3A5C; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; border-bottom: 1.5px solid #E03A2A; padding-bottom: 8px; }
+    .why-card ul { list-style: none; }
+    .why-card ul li { font-size: 13px; color: #444; padding: 5px 0; border-bottom: 0.5px solid #ddd; line-height: 1.4; }
+    .why-card ul li:last-child { border-bottom: none; }
+
+    footer { background: #1B3A5C; color: #ccd6e0; padding: 32px; text-align: center; }
+    footer .footer-name { font-size: 28px; font-weight: 900; color: #E03A2A; text-transform: uppercase; letter-spacing: 2px; }
+    footer .footer-slogan { font-size: 13px; letter-spacing: 2px; margin: 6px 0 16px; text-transform: uppercase; }
+    footer .rally { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; margin-top: 16px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 52px; }
+      .why-grid { grid-template-columns: 1fr; }
+      nav .links { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <nav>
+    <div class="logo">JACK WARING FOR PRESIDENT</div>
+    <div class="links">
+      <a href="#vision">My Vision</a>
+      <a href="#why">Why Jack</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="tag">LSE AI Society</div>
+    <h1>Jack<br>Waring</h1>
+    <div class="for-president">For President</div>
+    <div class="slogan">AI For Everyone</div>
+    <ul class="ticks">
+      <li><span class="tick-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Learn AI. Stay ahead.</li>
+      <li><span class="tick-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Shape AI's direction.</li>
+      <li><span class="tick-icon"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Build your future.</li>
+    </ul>
+    <a href="https://www.lsesu.com/communities/elections/" target="_blank"><button class="vote-btn">Vote Jack</button></a>
+  </div>
+
+  <section id="vision">
+    <div class="section-tag">My Vision</div>
+    <div class="section-title">This Is Our Moment.</div>
+    <div class="vision-intro">
+      AI is reshaping every industry. <strong>Goldman Sachs predicts over 300 million jobs will be impacted by AI.</strong> But we don't know how exactly. My vision is simple: equip every LSE student with the knowledge, tools and confidence to thrive in an AI-driven world.
+    </div>
+    <div class="agenda-title">Here's Our Agenda.</div>
+    <div class="agenda-items">
+      <div class="agenda-item">
+        <h3>Get Ahead. Stay Ahead.</h3>
+        <p>Speakers at the intersection of AI, geopolitics, finance, consulting, government and law. Whether you want to go down these career paths, AI is changing every path. Time to come understand yours.</p>
+      </div>
+      <div class="agenda-item">
+        <h3>Walk In Curious. Walk Out Capable.</h3>
+        <p>A structured weekly workshop programme open to all levels. Each session focuses on a different AI tool from Claude Code to OpenClaw. By the end, you won't just know what AI can do. You'll know how to use it.</p>
+      </div>
+      <div class="agenda-item">
+        <h3>The Big Questions Start Here.</h3>
+        <p>The debates shaping our world: Who controls AI? Can democracy survive AI? How can AI be used ethically? These questions deserve more than headlines. In partnership with societies across LSE, we bring these questions into the academic arena where they belong.</p>
+      </div>
+      <div class="agenda-item">
+        <h3>Beyond The Noise.</h3>
+        <p>A student-written digest cutting through the hype on the developments that actually matter. Giving passionate students the opportunity to research the economics, ethics, governance, geopolitics and policy of AI. Giving students the tools to explore the evolving world of AI, the opportunity to express their voice on the issues that matter, and the insight to engage with the debates defining our generation.</p>
+      </div>
+    </div>
+    <div class="honourable">
+      <h3>Honourable Mentions</h3>
+      <ul>
+        <li>London University AI Conference</li>
+        <li>Hackathons Support</li>
+        <li>Play Around AI</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="section-tag">Why Vote Jack?</div>
+    <div class="section-title">Already In Motion.</div>
+    <div class="section-sub">Our agenda is ambitious. Here's why I can deliver it.</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">01</div>
+        <h3>Already In Motion</h3>
+        <ul>
+          <li>AI and cybersecurity founders ready to speak</li>
+          <li>Professor on AI and labour markets lined up</li>
+          <li>Completed LSE Ethics in AI course</li>
+          <li>Contacts and knowledge to hit the ground running</li>
+        </ul>
+      </div>
+      <div class="why-card">
+        <div class="num">02</div>
+        <h3>Why Trust Me</h3>
+        <ul>
+          <li>Laidlaw Leadership and Research Scholar</li>
+          <li>Founded Sustainable Bikes in Singapore from scratch</li>
+          <li>Led a team of 20+ people to real impact</li>
+        </ul>
+      </div>
+      <div class="why-card">
+        <div class="num">03</div>
+        <h3>What Comes Next</h3>
+        <ul>
+          <li>Build a strong, diverse student team</li>
+          <li>Survey members so this works for everyone</li>
+          <li>Grow social media presence weekly</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-name">Jack Waring</div>
+    <div class="footer-slogan">LSE AI Society — For President</div>
+    <div style="font-size:13px; color: #7a9bb5;">AI For Everyone</div>
+    <div class="rally">Lets Make This Society Work For Everyone. Vote Jack!</div>
+  </footer>
+
+</div>
+</body>
+</html>
